@@ -6,25 +6,23 @@ document.addEventListener("alpine:init", () => {
         last: "0",
         timer: "",
         onScroll() {
-            let inOrOut = window.scrollY < 70 ? "in" : "out";
-            const t = Date.now();
+            const fromTop = 50;
             const animDur = 2600;
+            let inOrOut = window.scrollY < fromTop ? "in" : "out";
 
             if (this.init) return;
             if (this.timer) clearTimeout(this.timer);
             if (this.anim === inOrOut) return;
 
+            const t = Date.now();
             const since = t - this.last;
             if (since > animDur) {
-                console.log(" IMM ", inOrOut);
                 this.anim = inOrOut;
                 this.last = t;
                 return;
             }
 
-            console.log("timer ", since);
             this.timer = setTimeout(() => {
-                console.log(" DEL ", inOrOut);
                 this.anim = inOrOut;
                 this.last = t;
             }, animDur - since);

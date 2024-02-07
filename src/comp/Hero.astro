@@ -1,7 +1,41 @@
-<!-- <script is:inline>document.addEventListener("alpine:init", () => { });</script> -->
+<script is:inline>
+document.addEventListener("alpine:init", () => {
+    Alpine.data("hero", () => ({
+        init: "true",
+        anim: "",
+        last: "0",
+        timer: "",
+        onScroll() {
+            let inOrOut = window.scrollY < 70 ? "in" : "out";
+            const t = Date.now();
+            const animDur = 2600;
+
+            if (this.init) return;
+            if (this.timer) clearTimeout(this.timer);
+            if (this.anim === inOrOut) return;
+
+            const since = t - this.last;
+            if (since > animDur) {
+                console.log(" IMM ", inOrOut);
+                this.anim = inOrOut;
+                this.last = t;
+                return;
+            }
+
+            console.log("timer ", since);
+            this.timer = setTimeout(() => {
+                console.log(" DEL ", inOrOut);
+                this.anim = inOrOut;
+                this.last = t;
+            }, animDur - since);
+        },
+    }));
+});
+</script>
 <div
-  x-data="{init:'true',anim:''}"
-  x-init="setTimeout(()=>{ anim='in'; init=false; },800)"
+  x-data="hero"
+  x-init="setTimeout(()=>{ anim='in'; init=false; last=Date.now() },800)"
+  @scroll.window="onScroll"
 >
   <div class="hero">
     <div class="left"></div>
@@ -35,6 +69,11 @@
 <!-- <svelte:window on:scroll={onScroll}></svelte:window> -->
 
 <style>
+  body {
+    /* font-family: "Nimbus Mono PS", "Courier New", monospace; */
+    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+      Arial, sans-serif;
+  }
   .hero {
     display: flex;
     align-items: center;
@@ -43,7 +82,6 @@
 
     height: 60vh;
     max-height: 500px;
-    font-size: 14vw;
   }
 
   .init {
@@ -54,22 +92,31 @@
   .right {
     flex: 1;
     height: 100%;
-    --g1: transparent 0.4em;
-    --g2: white 0.89em;
     z-index: 2;
+    --trans: 2.6em;
+    --white: calc(var(--trans) + 2.9em);
   }
   .left {
-    background: linear-gradient(to left, var(--g1), var(--g2));
+    background: linear-gradient(
+      to left,
+      transparent var(--trans),
+      white var(--white)
+    );
   }
   .right {
-    background: linear-gradient(to right, var(--g1), var(--g2));
+    background: linear-gradient(
+      to right,
+      transparent var(--trans),
+      white var(--white)
+    );
   }
 
   .tommy {
     position: relative;
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
     font-weight: 400;
-    font-size: 14vw;
+    font-size: 15vw;
+    line-height: 1;
 
     margin: 0;
     display: flex;
@@ -172,7 +219,7 @@
   }
 
   .o {
-    --tf-origin: 50% 55%;
+    --tf-origin: 50% 50%;
     --dist-o: -3em;
     --ang-o: -850deg;
 

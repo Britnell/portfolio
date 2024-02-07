@@ -1,5 +1,5 @@
 ---
-
+import Hero from "../comp/Hero.astro";
 ---
 
 <html lang="en">
@@ -9,8 +9,24 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
+    <!-- <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.js"
+    ></script>
   </head>
   <body>
-    <h1>Tommy</h1>
+    <header>
+      <Hero />
+    </header>
+    <main class="">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+        corrupti sed praesentium odio nobis magni quam quis voluptatem qui
+        error, facere obcaecati explicabo. Eum asperiores quaerat, sunt maiores
+        exercitationem hic.
+      </p>
+    </main>
   </body>
 </html>

@@ -9,10 +9,7 @@ import Hero from "../comp/Hero.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
-    <!-- <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script> -->
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" ></script> -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.js"
     ></script>
   </head>
@@ -20,7 +17,19 @@ import Hero from "../comp/Hero.astro";
     <header>
       <Hero />
     </header>
-    <main class="">
+    <main class="max-w-[800px] mx-auto">
+      <h1 class="text-4xl">
+        {`Hi I'm Tommy`}
+        <br />
+        {`& I'm a web developer`}
+      </h1>
+      <ul
+        class="mt-20 mb-10 grid grid-cols-3 gap-8 place-items-center text-2xl"
+      >
+        <li>Frontend</li>
+        <li>Fullstack</li>
+        <li>creative technologist</li>
+      </ul>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
         corrupti sed praesentium odio nobis magni quam quis voluptatem qui

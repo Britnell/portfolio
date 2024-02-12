@@ -1,33 +1,33 @@
 <script is:inline>
 document.addEventListener("alpine:init", () => {
-    Alpine.data("hero", () => ({
-        init: "true",
-        anim: "",
-        last: "0",
-        timer: "",
-        onScroll() {
-            const fromTop = 50;
-            const animDur = 2600;
-            let inOrOut = window.scrollY < fromTop ? "in" : "out";
+  Alpine.data("hero", () => ({
+    init: "true",
+    anim: "",
+    last: "0",
+    timer: "",
+    onScroll() {
+      const fromTop = 50;
+      const animDur = 2600;
+      let inOrOut = window.scrollY < fromTop ? "in" : "out";
 
-            if (this.init) return;
-            if (this.timer) clearTimeout(this.timer);
-            if (this.anim === inOrOut) return;
+      if (this.init) return;
+      if (this.timer) clearTimeout(this.timer);
+      if (this.anim === inOrOut) return;
 
-            const t = Date.now();
-            const since = t - this.last;
-            if (since > animDur) {
-                this.anim = inOrOut;
-                this.last = t;
-                return;
-            }
+      const t = Date.now();
+      const since = t - this.last;
+      if (since > animDur) {
+        this.anim = inOrOut;
+        this.last = t;
+        return;
+      }
 
-            this.timer = setTimeout(() => {
-                this.anim = inOrOut;
-                this.last = t;
-            }, animDur - since);
-        },
-    }));
+      this.timer = setTimeout(() => {
+        this.anim = inOrOut;
+        this.last = t;
+      }, animDur - since);
+    },
+  }));
 });
 </script>
 <div
@@ -98,14 +98,14 @@ document.addEventListener("alpine:init", () => {
     background: linear-gradient(
       to left,
       transparent var(--trans),
-      white var(--white)
+      var(--bg, #fff) var(--white)
     );
   }
   .right {
     background: linear-gradient(
       to right,
       transparent var(--trans),
-      white var(--white)
+      var(--bg, #fff) var(--white)
     );
   }
 

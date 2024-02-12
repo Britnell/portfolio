@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .heading {
+    font-family: var(--industrial);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+}

@@ -11,17 +11,12 @@ export async function getStaticPaths() {
       markdown: md,
     },
   }));
-  //   console.log(list);
   return list;
 }
 
-// const { id } = Astro.params;
 const { markdown } = Astro.props;
 const { id, title, url, imgs } = markdown.frontmatter;
 const { Content } = markdown;
-console.log(markdown.url);
-
-// const Content = markdown.content;
 ---
 
 <Page>

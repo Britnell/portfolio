@@ -1,8 +1,9 @@
 ---
+tile: "MadeByOn - Clients"
 id: "on"
+url: "https://www.madebyon.com/"
+imgs: ["flyp.png"]
 ---
-
-export const title = "Flyp intro";
 
 # all about flyp
 

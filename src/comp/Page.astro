@@ -1,51 +1,26 @@
 ---
-import Hero from "../comp/Hero.astro";
-import Companies from "./Companies.astro";
+import { ViewTransitions } from "astro:transitions";
 import "../comp/styles.css";
 ---
 
-<script is:inline>
-document.addEventListener("alpine:init", () => {
-  Alpine.data("scroll", () => ({
-    scroll: 0,
-    onscroll(el) {
-      const min = 18;
-      let scr = 255 - (255 * window.scrollY) / 400;
-      if (scr < min) scr = min;
-      this.scroll = scr;
-      document.body.style.setProperty("--bg", `rgb(${scr},${scr},${scr})`);
-      document.body.style.setProperty("--scroll", window.scrollY);
-    },
-  }));
-});
-</script>
-<div x-data="scroll" @scroll.window="onscroll($el)">
-  <header>
-    <Hero />
-  </header>
-  <main class="content-grid mt-[200px] text-white">
-    <h1 class="text-4xl">
-      {`Hi I'm Tommy`}
-      <br />
-      {`& I'm a web developer`}
-    </h1>
-    <ul
-      class="heading my-[180px] flex flex-col justify-center items-center text-[clamp(3rem,10vw,7.5rem)]"
-    >
-      <li class="h-[0.8em]">Frontend</li>
-      <li class="h-[0.8em]">Fullstack</li>
-      <li class="h-[0.8em]">UIUX</li>
-    </ul>
-    <Companies />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores corrupti
-      sed praesentium odio nobis magni quam quis voluptatem qui error, facere
-      obcaecati explicabo. Eum asperiores quaerat, sunt maiores exercitationem
-      hic.
-    </p>
-  </main>
-  <style>
-    main {
-    }
-  </style>
-</div>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Tommy</title>
+    <meta name="title" content="Tommy Britnell web development" />
+    <meta
+      name="description"
+      content="I'm a front-end fullstack web developer, welcome to my personal portfolio website"
+    />
+    <ViewTransitions />
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" ></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.js"
+    ></script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

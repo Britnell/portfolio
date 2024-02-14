@@ -1,15 +1,17 @@
 <script is:inline>
+const gotoWork = () =>
+  setTimeout(() => {
+    window.location.href = "/portfolio/about";
+  }, 2000);
+
 document.addEventListener("alpine:init", () => {
   Alpine.data("hero", () => ({
     init: "true",
     anim: "",
     last: "0",
     timer: "",
-    onScroll() {
-      const fromTop = 50;
+    animate(inOrOut) {
       const animDur = 2600;
-      let inOrOut = window.scrollY < fromTop ? "in" : "out";
-
       if (this.init) return;
       if (this.timer) clearTimeout(this.timer);
       if (this.anim === inOrOut) return;
@@ -19,12 +21,14 @@ document.addEventListener("alpine:init", () => {
       if (since > animDur) {
         this.anim = inOrOut;
         this.last = t;
+        gotoWork();
         return;
       }
 
       this.timer = setTimeout(() => {
         this.anim = inOrOut;
         this.last = t;
+        gotoWork();
       }, animDur - since);
     },
   }));
@@ -33,45 +37,48 @@ document.addEventListener("alpine:init", () => {
 <div
   x-data="hero"
   x-init="setTimeout(()=>{ anim='in'; init=false; last=Date.now() },800)"
-  @scroll.window="onScroll"
 >
-  <div class="hero">
-    <div class="left"></div>
-    <p class="tommy" :class=" anim + (init?' init' :'') ">
-      <span class=""><span><span><span>T</span></span></span></span>
-      <span class="o"><span class="hov">o</span></span>
-      <span class="m1">
-        <span style="--m: 0">
-          <span style="--m: 1">
-            <span style="--m: 2">
-              <span style="--m: 3"> m</span>
+  <header>
+    <div class="hero">
+      <div class="left"></div>
+      <p class="tommy" :class=" anim + (init?' init' :'') ">
+        <span class=""><span><span><span>T</span></span></span></span>
+        <span class="o"><span class="hov">o</span></span>
+        <span class="m1">
+          <span style="--m: 0">
+            <span style="--m: 1">
+              <span style="--m: 2">
+                <span style="--m: 3"> m</span>
+              </span>
             </span>
           </span>
         </span>
-      </span>
-      <span class="m2">
-        <span style="--m: 0">
-          <span style="--m: 1">
-            <span style="--m: 2">
-              <span style="--m: 3"> m</span>
+        <span class="m2">
+          <span style="--m: 0">
+            <span style="--m: 1">
+              <span style="--m: 2">
+                <span style="--m: 3"> m</span>
+              </span>
             </span>
           </span>
         </span>
-      </span>
-      <span class="y"><span class="slide">y</span></span>
-    </p>
-    <div class="right"></div>
-  </div>
+        <span class="y"><span class="slide">y</span></span>
+      </p>
+      <div class="right"></div>
+    </div>
+  </header>
+  <main class="flex items-center justify-center">
+    <a
+      href="/portfolio/about"
+      class="bg-black text-white px-4 py-2 heading text-2xl"
+      @click.prevent="animate('out');"
+    >
+      <span>Enter</span>
+    </a>
+  </main>
 </div>
 
-<!-- <svelte:window on:scroll={onScroll}></svelte:window> -->
-
 <style>
-  body {
-    /* font-family: "Nimbus Mono PS", "Courier New", monospace; */
-    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
-      Arial, sans-serif;
-  }
   .hero {
     display: flex;
     align-items: center;

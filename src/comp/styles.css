@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --industrial: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium",
+    "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
+}
+
 @layer base {
-  :root {
-    --industrial: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium",
-      "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
-  }
   body {
-    background: var(--bg, #fff);
+    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+      Arial, sans-serif;
   }
 }
 

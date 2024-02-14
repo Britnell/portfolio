@@ -20,7 +20,7 @@ document.addEventListener("alpine:init", () => {
   }));
 });
 </script>
-<div x-data="scroll" @scroll.window="onscroll($el)">
+<div x-data="scroll" @scroll.window="onscroll && onscroll($el)">
   <main class="content-grid mt-[200px]">
     <h1 class="text-4xl">
       {`Hi I'm Tommy`}

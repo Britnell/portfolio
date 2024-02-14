@@ -1,5 +1,5 @@
 ---
-tile: "pushbullet"
+title: "pushbullet"
 id: "pushbullet"
 url: "https://www.pushbullet.com/"
 imgs: ["pushbullet.png"]

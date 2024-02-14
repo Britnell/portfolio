@@ -1,5 +1,5 @@
 ---
-tile: "MadeByOn - Earthly"
+title: "MadeByOn - Earthly"
 id: "earthly"
 url: "https://www.earthly.org/"
 imgs: ["earthly.png"]

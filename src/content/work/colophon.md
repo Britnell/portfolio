@@ -1,5 +1,5 @@
 ---
-tile: "MadeByOn - Colophon"
+title: "MadeByOn - Colophon"
 id: "colophon"
 url: "https://www.colophon-foundry.org/"
 imgs: ["colophon.png", "colophonmob.png"]

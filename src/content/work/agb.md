@@ -1,5 +1,5 @@
 ---
-tile: "Virtual Audioguestbook"
+title: "Virtual Audioguestbook"
 id: "agb"
 url: "https://www.audioguestbook.com/"
 imgs: ["agb.png"]

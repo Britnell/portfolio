@@ -1,5 +1,5 @@
 ---
-tile: "Digital Rebellion"
+title: "Digital Rebellion"
 id: "xr"
 url: "https://www.digitalrebellion.uk/"
 imgs: ["xr.png"]

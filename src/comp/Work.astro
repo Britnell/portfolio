@@ -1,52 +1,24 @@
 ---
-import Companies from "./Companies.astro";
-import "../comp/styles.css";
+import { works } from "./data";
 ---
 
-<style is:global>
-  body {
-    background: black;
-  }
-</style>
-<script is:inline>
-document.addEventListener("alpine:init", () => {
-  Alpine.data("scroll", () => ({
-    scroll: 0,
-    onscroll(el) {
-      const min = 18;
-      let scr = 255 - (255 * window.scrollY) / 400;
-      if (scr < min) scr = min;
-      this.scroll = scr;
-      // document.body.style.setProperty("--bg", `rgb(${scr},${scr},${scr})`);
-      document.body.style.setProperty("--scroll", window.scrollY);
-    },
-  }));
-});
-</script>
-<div x-data="scroll" @scroll.window="onscroll($el)">
-  <main class="content-grid mt-[200px] text-white">
-    <h1 class="text-4xl">
-      {`Hi I'm Tommy`}
-      <br />
-      {`& I'm a web developer`}
-    </h1>
-    <ul
-      class="heading my-[180px] flex flex-col justify-center items-center text-[clamp(3rem,10vw,7.5rem)]"
-    >
-      <li class="h-[0.8em]">Frontend</li>
-      <li class="h-[0.8em]">Fullstack</li>
-      <li class="h-[0.8em]">UIUX</li>
-    </ul>
-    <Companies />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores corrupti
-      sed praesentium odio nobis magni quam quis voluptatem qui error, facere
-      obcaecati explicabo. Eum asperiores quaerat, sunt maiores exercitationem
-      hic.
-    </p>
-  </main>
-  <style>
-    main {
-    }
-  </style>
+<div>
+  <h2 class="my-6 heading text-4xl">SHOW & TELL</h2>
 </div>
+<section class="breakout">
+  <div class="col-start-1 grid grid-cols-12 gap-4">
+    {
+      Object.values(works).map((item) => (
+        <div class=" col-span-8 col-start-4 row-span-4">
+          <a href={`/portfolio/work/${item.id}`}>
+            <img
+              src={`/portfolio/work/${item.imgs[0]}`}
+              alt="asda"
+              transition:name={`${item.id}-img`}
+            />
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</section>

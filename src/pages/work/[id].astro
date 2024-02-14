@@ -1,0 +1,76 @@
+---
+import { works } from "../../comp/data";
+import Page from "../../comp/Page.astro";
+
+export async function getStaticPaths() {
+  const mdxs = await Astro.glob("../../content/*.md");
+  const list = mdxs.map((md) => ({
+    params: {
+      id: md.frontmatter.id,
+    },
+    props: {
+      markdown: md,
+    },
+  }));
+  console.log(list);
+  return list;
+}
+
+// const { id } = Astro.params;
+const { markdown } = Astro.props;
+const { id, title, url, imgs } = markdown.frontmatter;
+const { Content } = markdown;
+console.log(markdown.url);
+
+// const Content = markdown.content;
+---
+
+<Page>
+  <style is:global>
+    body {
+      background: black;
+    }
+  </style>
+  <div class="content-grid">
+    <header>
+      <a href="/portfolio/about">Back</a>
+      <h1>{title}</h1>
+    </header>
+    <main class="grid grid-cols-2">
+      <div>
+        <p>
+          url :
+          <a href={url}>
+            {url}
+          </a>
+        </p>
+
+        <div class="md">
+          <Content />
+        </div>
+      </div>
+      <div>
+        {
+          imgs.slice(0, 1).map((img, i) => (
+            <img
+              src={`/portfolio/work/${img}`}
+              alt="website screenshot"
+              {...(i === 0
+                ? {
+                    ["transition:name"]: `${id}-img`,
+                  }
+                : {})}
+            />
+          ))
+        }
+      </div>
+    </main>
+  </div>
+</Page>
+
+<style is:global>
+  .md ul {
+    padding-left: 1.5rem;
+    list-style: disc;
+  }
+</style>

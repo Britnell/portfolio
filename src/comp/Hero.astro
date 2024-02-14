@@ -34,11 +34,18 @@ document.addEventListener("alpine:init", () => {
   }));
 });
 </script>
+<style>
+  body {
+    background: white;
+    --bg: white;
+    color: black;
+  }
+</style>
 <div
   x-data="hero"
   x-init="setTimeout(()=>{ anim='in'; init=false; last=Date.now() },800)"
 >
-  <header>
+  <header class="">
     <div class="hero">
       <div class="left"></div>
       <p class="tommy" :class=" anim + (init?' init' :'') ">

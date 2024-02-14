@@ -30,3 +30,11 @@ export const companies = [
     img: "/logos/ewb.png",
   },
 ];
+
+export const works = {
+  flyp: {
+    id: "flyp",
+    url: "https://www.flyp.co/",
+    imgs: ["flyp.png", "flypdash.png", "flypfb.png"],
+  },
+};

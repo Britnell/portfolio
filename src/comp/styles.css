@@ -2,19 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --industrial: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium",
-    "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
-}
-
 @layer base {
+  :root {
+    --industrial: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium",
+      "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
+  }
   body {
     font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
       Arial, sans-serif;
+    background: black;
+    color: white;
   }
-}
 
-@layer components {
   .content-grid {
     --padding-inline: 3rem;
     --content-max-width: 900px;
@@ -36,8 +35,7 @@
       minmax(var(--padding-inline), 1fr) [fullwidth-end];
   }
 
-  .content-grid > :not(.breakout, .fullwidth),
-  .fullwidth > :not(.breakout, .fullwidth) {
+  :where(.content-grid, .fullwidth) > :not(.breakout, .fullwidth) {
     grid-column: content;
   }
 
@@ -50,6 +48,9 @@
     display: grid;
     grid-template-columns: inherit;
   }
+}
+
+@layer components {
 }
 
 @layer utilities {

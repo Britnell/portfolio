@@ -25,31 +25,48 @@ const { Content } = markdown;
       background: black;
     }
   </style>
-  <div class="_content-grid px-10 mx-auto max-w-[1200px]" x-data="{}">
+  <script is:inline>
+    // window.addEventListener("alpine:init", () => {
+    //   Alpine.data("carousel", () => ({
+    //     pos: 0,
+    //   }));
+    // });
+  </script>
+  <div
+    class="_content-grid px-10 mx-auto max-w-[1200px]"
+    x-data={`{ ix:0, imgs: ${JSON.stringify(imgs)} }`}
+  >
     <header>
       <a href="/portfolio/about" @click.prevent="window.history.back()">Back</a>
       <h1>{title}</h1>
     </header>
     <main class="h-[80vh] max-h-[800px]">
-      <div class="my-auto">
+      <div class="relative flex flex-row justify-center items-center">
         <img
-          class="snap-center"
+          class=""
           src={`/portfolio/work/${imgs[0]}`}
           alt={`${id} website image`}
           transition:name={`${id}-img`}
+          x-show="ix===0"
         />
-        <!-- {
-          imgs
-            .slice(1)
-            .map((img) => (
-              <img
-                class=" snap-center"
-                src={`/portfolio/work/${img}`}
-                alt={`${id} website image`}
-                transition:name={`${id}-img`}
-              />
-            ))
-        } -->
+        <template x-for="(img,i) in imgs">
+          <img
+            class=""
+            :src="'/portfolio/work/'+img"
+            alt={`${id} website image`}
+            x-show="i!==0 && ix===i"
+            transition:name={`${id}-img`}
+          />
+        </template>
+      </div>
+      <div
+        class="mt-3 flex flex-row justify-center gap-3"
+        x-show="imgs.length > 1"
+      >
+        <template x-for="(img,i) in imgs">
+          <button @click="ix=i" class="w-10 h-10 rounded-full bg-gray-300"
+          ></button>
+        </template>
       </div>
       <div>
         <p>

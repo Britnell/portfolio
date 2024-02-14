@@ -1,0 +1,29 @@
+---
+import { companies } from "./data";
+---
+
+<section>
+  <div>
+    <h2 class="my-6 heading text-4xl">I've worked for</h2>
+  </div>
+  <div class="breakout bg-slate-500 p-8">
+    <div
+      class="grid grid-cols-[repeat(auto-fill,300px)] place-content-center gap-10 place-items-center"
+    >
+      {
+        companies.map((comp) => (
+          <div>
+            <a href={comp.url} target="_blank" rel=" noopener noreferrer">
+              <img
+                class="  max-h-[180px] "
+                src={`/portfolio${comp.img}`}
+                alt={`${comp.name} company logo`}
+                title={comp.name}
+              />
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

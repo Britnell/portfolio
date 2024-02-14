@@ -1,0 +1,51 @@
+---
+import Hero from "../comp/Hero.astro";
+import Companies from "./Companies.astro";
+import "../comp/styles.css";
+---
+
+<script is:inline>
+document.addEventListener("alpine:init", () => {
+  Alpine.data("scroll", () => ({
+    scroll: 0,
+    onscroll(el) {
+      const min = 18;
+      let scr = 255 - (255 * window.scrollY) / 400;
+      if (scr < min) scr = min;
+      this.scroll = scr;
+      document.body.style.setProperty("--bg", `rgb(${scr},${scr},${scr})`);
+      document.body.style.setProperty("--scroll", window.scrollY);
+    },
+  }));
+});
+</script>
+<div x-data="scroll" @scroll.window="onscroll($el)">
+  <header>
+    <Hero />
+  </header>
+  <main class="content-grid mt-[200px] text-white">
+    <h1 class="text-4xl">
+      {`Hi I'm Tommy`}
+      <br />
+      {`& I'm a web developer`}
+    </h1>
+    <ul
+      class="heading my-[180px] flex flex-col justify-center items-center text-[4rem] leading-[0.8]"
+    >
+      <li>Frontend</li>
+      <li>Fullstack</li>
+      <li>UIUX</li>
+    </ul>
+    <Companies />
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores corrupti
+      sed praesentium odio nobis magni quam quis voluptatem qui error, facere
+      obcaecati explicabo. Eum asperiores quaerat, sunt maiores exercitationem
+      hic.
+    </p>
+  </main>
+  <style>
+    main {
+    }
+  </style>
+</div>

@@ -14,6 +14,7 @@ const { id, imgs } = Astro.props.md.frontmatter;
 <>
   <a href={`/portfolio/work/${id}`}>
     <img
+      class="w-full h-full object-cover object-top transition-transform hover:scale-95"
       src={`/portfolio/work/${imgs?.[0]}`}
       alt={`${id} website image`}
       transition:name={`${id}-img`}

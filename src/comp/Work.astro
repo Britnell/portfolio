@@ -13,26 +13,46 @@ mdxs.forEach((md) => works.set(md.frontmatter.id, md));
   <h2 class="my-6 heading text-4xl">SHOW & TELL</h2>
 </div>
 <section class="breakout">
-  <div class="col-start-1 grid grid-cols-12 gap-4">
-    <div class="col-start- col-span-4 row-start- row-span-4">
+  <div
+    class="col-start-1 grid grid-cols-12 grid-rows-[repeat(20,calc((100vw-3rem-16px*11)*1/12))] gap-3"
+  >
+    <div
+      class="relative overflow-hidden col-span-8 row-span-5 col-start-4 row-start-"
+    >
       <WorkCard md={works.get("flyp")} />
     </div>
-    <div class="col-start- col-span-4 row-start- row-span-4">
-      <WorkCard md={works.get("agb")} />
-    </div>
-    <div class="col-start- col-span-4 row-start- row-span-4">
+    <div
+      class="relative overflow-hidden col-span-6 row-span-4 col-start-x row-start-"
+    >
       <WorkCard md={works.get("colophon")} />
     </div>
-    <div class="col-start- col-span-4 row-start- row-span-4">
-      <WorkCard md={works.get("xr")} />
+    <div
+      class="relative overflow-hidden col-span-4 row-span-6 col-start-x row-start-"
+    >
+      <WorkCard md={works.get("agb")} />
     </div>
-    <div class="col-start- col-span-4 row-start- row-span-4">
+    <div
+      class="relative overflow-hidden col-span-3 row-span-2 col-start-x row-start-"
+    >
       <WorkCard md={works.get("earthly")} />
     </div>
-    <div class="col-start- col-span-4 row-start- row-span-4">
+    <div
+      class="relative overflow-hidden col-span-5 row-span- col-start-x row-start-"
+    >
+    </div>
+    <div
+      class="relative overflow-hidden col-span-6 row-span-4 col-start-x row-start-"
+    >
+      <WorkCard md={works.get("xr")} />
+    </div>
+    <div
+      class="relative overflow-hidden col-span-6 row-span-6 col-start-x row-start-"
+    >
       <WorkCard md={works.get("pushbullet")} />
     </div>
-    <div class="col-start- col-span-4 row-start- row-span-4">
+    <div
+      class="relative overflow-hidden col-span-6 row-span-4 col-start-x row-start-"
+    >
       <WorkCard md={works.get("playalong")} />
     </div>
   </div>

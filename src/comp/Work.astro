@@ -1,8 +1,5 @@
 ---
-import { works } from "./data";
 const mdxs = await Astro.glob("../content/work/*.md");
-
-// console.log(mdxs);
 ---
 
 <div>
@@ -26,18 +23,5 @@ const mdxs = await Astro.glob("../content/work/*.md");
         );
       })
     }
-    <!-- {
-      Object.values(works).map((item) => (
-        <div class=" col-span-8 col-start-4 row-span-4">
-          <a href={`/portfolio/work/${item.id}`}>
-            <img
-              src={`/portfolio/work/${item.imgs[0]}`}
-              alt="asda"
-              transition:name={`${item.id}-img`}
-            />
-          </a>
-        </div>
-      ))
-    } -->
   </div>
 </section>

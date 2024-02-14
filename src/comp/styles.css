@@ -51,13 +51,27 @@
 }
 
 @layer components {
-}
-
-@layer utilities {
   .heading {
     font-family: var(--industrial);
     text-transform: uppercase;
     font-weight: 900;
     letter-spacing: 0.08em;
   }
+
+  .carousel {
+    position: relative;
+    overflow: auto;
+    display: flex;
+    --d: 0px;
+    scroll-snap-type: x mandatory;
+    scroll-padding: var(--d);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
 }

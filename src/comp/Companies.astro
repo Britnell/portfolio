@@ -6,16 +6,16 @@ import { companies } from "./data";
   <div>
     <h2 class="my-6 heading text-4xl">I've worked for</h2>
   </div>
-  <div class="breakout bg-slate-500 p-8">
+  <div class="breakout bg-gray-400 p-8 mb-20">
     <div
       class="grid grid-cols-[repeat(auto-fill,300px)] place-content-center gap-10 place-items-center"
     >
       {
         companies.map((comp) => (
-          <div>
+          <div class=" ">
             <a href={comp.url} target="_blank" rel=" noopener noreferrer">
               <img
-                class="  max-h-[180px] "
+                class="  max-h-[160px] "
                 src={`/portfolio${comp.img}`}
                 alt={`${comp.name} company logo`}
                 title={comp.name}

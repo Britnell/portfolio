@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         industrial: "var(--industrial)",
+        mono: "'Nimbus Mono PS', 'Courier New', monospace",
       },
     },
   },

@@ -3,18 +3,28 @@ export type Props = {
   md: {
     frontmatter: {
       id: string;
+      title: string;
       imgs: string[];
     };
   };
 };
 
-const { id, imgs } = Astro.props.md.frontmatter;
+const { id, imgs, title } = Astro.props.md.frontmatter;
 ---
 
 <>
-  <a href={`/portfolio/work/${id}`}>
+  <a
+    href={`/portfolio/work/${id}`}
+    class="block group transition-all duration-200 focus-visible:scale-[97%] hover:scale-[97%]"
+    aria-label={`see details ${title} `}
+  >
+    <p
+      class="absolute top-0 bg-opacity-50 z-10 w-full text-center pt-2 pb-8 text-xl font-bold opacity-0 group-hover:opacity-100 duration-500 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.8),transparent)]"
+    >
+      {title}
+    </p>
     <img
-      class="w-full h-full object-cover object-top transition-transform hover:scale-95"
+      class="w-full h-full object-cover object-top"
       src={`/portfolio/work/${imgs?.[0]}`}
       alt={`${id} website image`}
       transition:name={`${id}-img`}

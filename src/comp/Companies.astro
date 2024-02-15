@@ -5,17 +5,17 @@ import { companies } from "./data";
 <div>
   <h2 class="my-6 heading text-4xl">I've worked for</h2>
 </div>
-<section class="breakout">
+<section class="">
   <div class="bg-gray-400 p-8 mb-20">
     <div
-      class="grid grid-cols-[repeat(auto-fill,300px)] place-content-center gap-10 place-items-center"
+      class="grid sm:grid-cols-[repeat(auto-fill,240px)] place-content-center gap-4 lg:gap-10 place-items-center"
     >
       {
         companies.map((comp) => (
           <div class=" ">
             <a href={comp.url} target="_blank" rel=" noopener noreferrer">
               <img
-                class=" max-w-[240px]  max-h-[120px] "
+                class=" w-full max-h-[80px]  md:max-h-[120px] "
                 src={`/portfolio${comp.img}`}
                 alt={`${comp.name} company logo`}
                 title={comp.name}

@@ -22,25 +22,52 @@ const { Content } = markdown;
 <Page>
   <style is:global>
     body {
-      background: black;
+      background: rgb(49, 49, 49);
     }
   </style>
-  <script is:inline>
-    // window.addEventListener("alpine:init", () => {
-    //   Alpine.data("carousel", () => ({
-    //     pos: 0,
-    //   }));
-    // });
-  </script>
+  <script is:inline></script>
   <div
     class="_content-grid px-10 mx-auto max-w-[1200px]"
     x-data={`{ ix:0, imgs: ${JSON.stringify(imgs)} }`}
+    @keydown.window.escape="window.history.back()"
   >
     <header>
-      <a href="/portfolio/about" @click.prevent="window.history.back()">Back</a>
-      <h1>{title}</h1>
+      <div class="h-14 flex flex-row justify-between items-center">
+        <a
+          href="/portfolio/about"
+          @click.prevent="window.history.back()"
+          aria-label="Back"
+          class="p-3"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="rotate-180"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <h1 class="heading text-xl">{title}</h1>
+        <a
+          href="/portfolio/about"
+          @click.prevent="window.history.back()"
+          aria-label="close"
+          class="p-3"
+        >
+          X
+        </a>
+      </div>
     </header>
-    <main class="h-[80vh] max-h-[800px]">
+
+    <main class="mt-10 h-[80vh] max-h-[800px]">
       <div class="relative flex flex-row justify-center items-center">
         <img
           class=""

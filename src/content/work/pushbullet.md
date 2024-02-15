@@ -1,5 +1,5 @@
 ---
-title: "pushbullet"
+title: "Fullstack Pushbullet Clone"
 id: "pushbullet"
 url: "https://www.pushbullet.com/"
 imgs: ["pushbullet.png"]

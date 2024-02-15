@@ -10,14 +10,14 @@ export const companies = [
     img: "/logos/on.png",
   },
   {
-    name: "Nio",
-    url: "https://www.nio.com/",
-    img: "/logos/nio.png",
-  },
-  {
     name: "Design Affairs",
     url: "https://www.designaffairs.com/",
     img: "/logos/desaff.png",
+  },
+  {
+    name: "Nio",
+    url: "https://www.nio.com/",
+    img: "/logos/nio.png",
   },
   {
     name: "The Makery",

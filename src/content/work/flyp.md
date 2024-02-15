@@ -2,7 +2,7 @@
 title: "Flyp.co Website"
 id: "flyp"
 url: "https://flyp.co/"
-imgs: ["flyp.png", "flypdash.png", "flypfb.png"]
+imgs: ["flyp.png", "flypdash.png"]
 ---
 
 # all about flyp

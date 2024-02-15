@@ -12,3 +12,6 @@ i did stuff
 - a
 - b
 - c
+
+for more symmetry
+https://webs.wonday.eu/html/path_gen.html

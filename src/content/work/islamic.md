@@ -1,7 +1,7 @@
 ---
 title: "islamic geometric"
 id: "islamic"
-url: "https://webs.wonday.eu/html/path_gen.html"
+url: "https://webs.wonday.eu/html/paper_islam.html"
 imgs: ["islamic.png"]
 ---
 

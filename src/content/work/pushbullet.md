@@ -1,7 +1,7 @@
 ---
 title: "Fullstack Pushbullet Clone"
 id: "pushbullet"
-url: "https://www.pushbullet.com/"
+url: "https://pushbullet.netlify.app/"
 imgs: ["pushbullet.png"]
 ---
 

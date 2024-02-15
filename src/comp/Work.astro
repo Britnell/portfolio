@@ -28,7 +28,7 @@ mdxs.forEach((md) => works.set(md.frontmatter.id, md));
       <WorkCard md={works.get("colophon")} />
     </div>
     <div
-      class="relative overflow-hidden col-start-3 col-end-11 row-span-8 md:col-span-5 md:row-span-8 md:col-start-8 lg:col-span-4 lg:row-span-6 lg:col-start-9"
+      class="relative overflow-hidden col-start-4 col-end-10 row-span-10 md:col-span-5 md:row-span-8 md:col-start-8 lg:col-span-4 lg:row-span-6 lg:col-start-9"
     >
       <WorkCard md={works.get("agb")} />
     </div>
@@ -53,7 +53,12 @@ mdxs.forEach((md) => works.set(md.frontmatter.id, md));
       <WorkCard md={works.get("playalong")} />
     </div>
     <div
-      class="relative overflow-hidden col-span-6 row-span-7 md:col-span-4 md:row-span-5"
+      class="relative overflow-hidden col-span-full row-span-8 md:col-span-6 md:row-span-4 lg:col-span-6 lg:row-span-4 lg:col-start-3"
+    >
+      <WorkCard md={works.get("sketchbook")} />
+    </div>
+    <div
+      class="relative overflow-hidden col-span-6 row-span-7 md:col-span-4 md:row-span-5 lg:row-start-"
     >
       <WorkCard md={works.get("boggle")} />
     </div>

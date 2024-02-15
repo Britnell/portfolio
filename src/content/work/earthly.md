@@ -1,7 +1,7 @@
 ---
 title: "MadeByOn - Earthly"
 id: "earthly"
-url: "https://www.earthly.org/"
+url: "https://earthly.org/"
 imgs: ["earthly.png"]
 ---
 

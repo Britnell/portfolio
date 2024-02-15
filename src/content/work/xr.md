@@ -1,7 +1,7 @@
 ---
 title: "Digital Rebellion"
 id: "xr"
-url: "https://www.digitalrebellion.uk/"
+url: "https://digitalrebellion.uk/"
 imgs: ["xr.png"]
 ---
 

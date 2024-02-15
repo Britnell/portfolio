@@ -1,7 +1,7 @@
 ---
 title: "Flyp.co Website"
 id: "flyp"
-url: "https://www.flyp.co/"
+url: "https://flyp.co/"
 imgs: ["flyp.png", "flypdash.png", "flypfb.png"]
 ---
 

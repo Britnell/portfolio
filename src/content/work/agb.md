@@ -1,7 +1,7 @@
 ---
 title: "Virtual Audioguestbook"
 id: "agb"
-url: "https://www.audioguestbook.com/"
+url: "https://audioguestbook.co.uk/"
 imgs: ["agb.png"]
 ---
 

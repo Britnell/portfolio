@@ -1,7 +1,7 @@
 ---
 title: "Spotify Playalong"
 id: "playalong"
-url: "https://www.playalong.vercel.app/"
+url: "https://playalong.vercel.app/"
 imgs: ["playalong.png"]
 ---
 

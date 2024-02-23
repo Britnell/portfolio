@@ -1,9 +1,14 @@
 ---
 import Page from "../../comp/Page.astro";
 
-export async function getStaticPaths() {
+type GSTP = {
+  params: { id: string };
+  props: { markdown: any };
+}[];
+export async function getStaticPaths(): Promise<GSTP> {
   const mdxs = await Astro.glob("../../content/work/*.md");
-  const list = mdxs.map((md) => ({
+
+  return mdxs.map((md: any) => ({
     params: {
       id: md.frontmatter.id,
     },
@@ -11,7 +16,6 @@ export async function getStaticPaths() {
       markdown: md,
     },
   }));
-  return list;
 }
 
 const { markdown } = Astro.props;

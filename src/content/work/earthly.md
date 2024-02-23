@@ -5,10 +5,6 @@ url: "https://earthly.org/"
 imgs: ["earthly.png"]
 ---
 
-# all about Earthly
+# Earthly website
 
-i did stuff
-
-- a
-- b
-- c
+at madebyon.com

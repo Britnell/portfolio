@@ -19,3 +19,6 @@ So I built myself a simple pushbullet clone, but its open for signup & usage
 - self rolled basic auth
 - preact (react replace)
 - react query for async state management
+
+Years ago I also made this PWA Pomodoro timer built with react
+https://webs.wonday.eu/react/pomodoro/

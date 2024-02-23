@@ -7,11 +7,11 @@ imgs: ["kolam.png"]
 
 # Kolam Generator
 
-i did stuff
+This is around 4 years old, but I really enjoyed building interactive 2D canvases with paper.js. This is what got me into web development
 
-- a
-- b
-- c
+Kolam is a type of geometric pattern traditonally drawn on the floor by the entrance in india.
+A lot of these feature this grid of twisted lines, so for fun a random generator for kolam patterns.
+Randomly generated with a variety of parameters.
 
-for more symmetry
-https://webs.wonday.eu/html/path_gen.html
+- paper.js
+- For more old 2D stuff - https://webs.wonday.eu/

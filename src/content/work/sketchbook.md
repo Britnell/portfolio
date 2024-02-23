@@ -5,10 +5,6 @@ url: "https://dev-sketchbook.netlify.app/"
 imgs: ["sketchbook.png"]
 ---
 
-# Development sketchbook v1
+# Web development sketchbook
 
-i did stuff
-
-- a
-- b
-- c
+Just a next.js repo I kept for trying out new ideas, css i was learning & more

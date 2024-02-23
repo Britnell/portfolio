@@ -16,6 +16,7 @@ Stack :
 - styled components
 - tailwind
 - postGRES
+- contentful headless CMS w graphQL
 
 Integration with partner websites & campaigns through widgets.
 

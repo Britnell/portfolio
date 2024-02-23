@@ -20,9 +20,45 @@ const { Content } = markdown;
 ---
 
 <Page>
-  <style is:global>
+  <style is:global lang="scss">
+    @function rem($pxVal) {
+      @return calc($pxVal / 16 * 1rem);
+    }
+    @function rempx($pxVal) {
+      @return calc($pxVal / 16px * 1rem);
+    }
+    @function clamps($font-min, $font-max) {
+      $screen-min: 340px;
+      $screen-max: 1750px;
+      $slope: calc(($font-max - $font-min) / ($screen-max - $screen-min));
+      $y-axis-intersection: calc(-1 * $screen-min * $slope + $font-min);
+      $min: rempx($font-min);
+      $max: rempx($font-max);
+      $intersect: rempx($y-axis-intersection);
+      @return clamp(#{$min}, calc(#{$intersect} + #{$slope} * 100vw), #{$max});
+    }
+
     body {
       background: rgb(49, 49, 49);
+    }
+
+    .md :where(h1, h2, h3) {
+      font-family: var(--industrial);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .md h1 {
+      font-size: clamps(24px, 32px);
+      margin-bottom: 0.5em;
+    }
+    .md h2 {
+      font-size: clamps(24px, 30px);
+    }
+    .md p {
+      font-size: clamps(16px, 18px);
+      margin-bottom: 0.8em;
     }
   </style>
 
@@ -34,7 +70,7 @@ const { Content } = markdown;
     @keydown.window.escape="window.history.back()"
   >
     <header class="">
-      <div class="h-14 my-4 flex flex-row justify-between items-center">
+      <div class="h-14 my-4 flex flex-row items-center justify-between">
         <a
           href="/portfolio/about"
           @click.prevent="window.history.back()"
@@ -57,7 +93,7 @@ const { Content } = markdown;
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
-        <h1 class="heading text-xl">{title}</h1>
+        <h1 class="heading text-3xl">{title}</h1>
         <a
           href="/portfolio/about"
           @click.prevent="window.history.back()"
@@ -70,6 +106,13 @@ const { Content } = markdown;
     </header>
 
     <main class="relative mt-6">
+      <div class="mb-6">
+        <p class="text-2xl text-center underline font-mono">
+          <a href={url}>
+            {url}
+          </a>
+        </p>
+      </div>
       <div
         class="relative h-[60vh] max-h-[800px] w-full overflow-hidden flex flex-row"
         x-ref="scrollRef"
@@ -118,13 +161,7 @@ const { Content } = markdown;
           </button>
         </div>
       </div>
-      <div class="mt-8 max-w-[75ch] mx-auto">
-        <p class="text-xl">
-          Url :
-          <a href={url}>
-            {url}
-          </a>
-        </p>
+      <div class="mt-12 max-w-[75ch] mx-auto mb-[300px]">
         <div class="md">
           <Content />
         </div>

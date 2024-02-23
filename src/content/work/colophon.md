@@ -12,6 +12,8 @@ This was a large project with 4-6 devs + design + QA.
 
 Fully configurable through headless cms, this site had an advanced set of components so the client could still customise and build any new layouts that they wanted to. A lot of time was spent crafting a set of components that was both highly customisable but not overly bloated and complex.
 
+## Stack
+
 - react & next
 - storyblock headless cms
 - components encapsulation & abstractions

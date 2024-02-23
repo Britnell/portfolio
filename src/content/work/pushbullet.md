@@ -13,9 +13,9 @@ So I built myself a simple pushbullet clone, but its open for signup & usage
 
 ## Tech :
 
-- Astro
+- Astro SSR
 - installable PWA
 - turso SQLite db + drizzle orm
-- self rolled auth
+- self rolled basic auth
 - preact (react replace)
-- react query for async state
+- react query for async state management

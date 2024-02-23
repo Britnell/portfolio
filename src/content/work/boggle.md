@@ -5,10 +5,14 @@ url: "https://borgle-game.netlify.app/"
 imgs: ["boggle.png"]
 ---
 
-# Boggle
+# Borgle (Boggle clone)
 
-i did stuff
+just a little web clone of the classic Boggle word game
 
-- a
-- b
-- c
+built over Xmas in order to play Boggle, and try out preact signals
+
+- vite SPA
+- preact
+- preact signals
+
+[github repo](https://github.com/Britnell/borgle)

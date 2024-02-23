@@ -10,14 +10,17 @@ imgs: ["flyp.png", "flypdash.png"]
 Mainly responsible for generating growth on client facing flyp.co website.
 Design, UI/UX & development of new web apps & landing pages to drive growth, user engagement & conversion.
 
-Stack :
+Integration with partner websites & campaigns through widgets.
+
+Design & development of fullstack sales dashboard. Client dashboard for managing the process or their house renovation, viewings & sale.
+
+## Stack :
 
 - react & next
 - styled components
 - tailwind
-- postGRES
 - contentful headless CMS w graphQL
 
-Integration with partner websites & campaigns through widgets.
+Dashboard
 
-Design & development of fullstack sales dashboard. Client dashboard for managing the process or their house renovation, viewings & sale.
+- elm-ts, fp-ts & postGRES

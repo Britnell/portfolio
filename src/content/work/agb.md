@@ -7,8 +7,14 @@ imgs: ["agb.png"]
 
 # Virtual audioguestbook
 
-i did stuff
+A virtual web-app version of the audioguestbook.
 
-- a
-- b
-- c
+A simple "answering machine" that plays the host's greeting message, then lets the user record an audio message like a voice note.
+
+Stack
+
+- Astro SSR
+- turso SQLite & drizzle
+- dropbox API
+- preact
+- webaudio API to record & visualise

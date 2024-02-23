@@ -5,10 +5,12 @@ url: "https://digitalrebellion.uk/"
 imgs: ["xr.png"]
 ---
 
-# pushbullet
+# Digital Rebellion
 
-i did stuff
+A hub for digital campaigns pushing for action on climate change, part of extinctionrebellion.uk.
 
-- a
-- b
-- c
+- Astro SSG
+- tailwind & sass
+- Storyblok headless cms
+- modular components
+- qwik

@@ -2,7 +2,7 @@
 title: "kolam generator"
 id: "kolam"
 url: "https://webs.wonday.eu/html/paper_kolam.html"
-imgs: ["kolam.png"]
+imgs: ["kolam.png", "kolam2.png", "kolam3.png"]
 ---
 
 # Kolam Generator

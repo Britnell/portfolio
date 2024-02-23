@@ -7,4 +7,6 @@ imgs: ["earthly.png"]
 
 # Earthly website
 
-at madebyon.com
+Worked on Earthly as a client at madebyon.com
+
+- React & Next

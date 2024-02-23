@@ -5,10 +5,17 @@ url: "https://pushbullet.netlify.app/"
 imgs: ["pushbullet.png"]
 ---
 
-# pushbullet
+# Pushbullet PWA clone
 
-i did stuff
+I recently switched to iOS and was frustrated that there no longer was pushbullet.
+(I was sending myself things in whatsapp etc.)
+So I built myself a simple pushbullet clone, but its open for signup & usage
 
-- a
-- b
-- c
+## Tech :
+
+- Astro
+- installable PWA
+- turso SQLite db + drizzle orm
+- self rolled auth
+- preact (react replace)
+- react query for async state

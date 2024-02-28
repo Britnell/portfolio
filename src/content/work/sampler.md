@@ -12,5 +12,7 @@ I wanted to try and build an audio sampler in the browser. I love playing with s
 ## Tech :
 
 - web audio api
-- react
-- astro & tailwind (of course)
+- waveform visualization with audio api + canvas
+- file storage api
+- files are cached in indexedDb
+- react, astro & tailwind

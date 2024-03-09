@@ -1,0 +1,21 @@
+---
+import Page from "../comp/Page.astro";
+---
+
+<Page>
+  <h1>Live Chat"</h1>
+  <p>asdasd</p>
+  <div></div>
+  <script src="https://cdn.jsdelivr.net/npm/@xenova/transformers"></script>
+  <script type="module">
+    // import { pipeline } from "@xenova/twransformers";
+
+    const pipe = await pipeline(
+      "text-generation",
+      "Xenova/llama2.c-stories15M"
+    );
+
+    const x = await pipe("i love tx ");
+    console.log(x);
+  </script>
+</Page>

@@ -48,7 +48,7 @@ document.addEventListener("alpine:init", () => {
 <div
   x-data="mouse"
   @mousemove="move"
-  class="[background:radial-gradient(circle_at_var(--mouse-x,50vw)_var(--mouse-y,50vh),rgba(10,33,84,0.5),rgba(0,0,0,0.5)_100vmax)]"
+  class="[background:radial-gradient(circle_at_var(--mouse-x,50vw)_var(--mouse-y,50vh),rgba(10,33,84,0.5),rgba(0,0,0,0.5)_80vmax)]"
 >
   <header class="content-grid">
     <div class="flex px-6 py-4 gap-8">
@@ -81,6 +81,8 @@ document.addEventListener("alpine:init", () => {
                   <a
                     class=" heading bg-white text-black px-2 inline-flex items-center  gap-2 "
                     href={md.frontmatter.button.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {md.frontmatter.button.icon === "git" && (
                       <svg viewBox="0 0 16 16" width="20" height="20">

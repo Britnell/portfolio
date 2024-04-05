@@ -1,7 +1,7 @@
 ---
 title: "Voice chat assistant with huggingface api"
 id: "voicechat"
-date: "4/4/2024"
+date: "1/4/2024"
 tags: ["ai"]
 button:
   { label: "code", url: "https://github.com/Britnell/assistance", icon: "git" }

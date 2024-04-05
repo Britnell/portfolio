@@ -1,7 +1,7 @@
 ---
 title: "a webcomponent version of my scroll hook"
 id: "scrollerwebc"
-date: "30/3/2024"
+date: "21/3/2024"
 tags: ["css", "scroll", "web components"]
 button:
   {

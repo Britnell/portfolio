@@ -6,16 +6,6 @@ import "../comp/styles.css";
 
 <script is:inline>
 document.addEventListener("alpine:init", () => {
-  // Alpine.data("scroll", () => ({
-  //   scroll: 0,
-  //   onscroll() {
-  //     const min = 18;
-  //     let scr = 255 - (255 * window.scrollY) / 400;
-  //     if (scr < min) scr = min;
-  //     this.scroll = scr;
-  //     document.body.style.setProperty("--scroll", window.scrollY);
-  //   },
-  // }));
   Alpine.data("mouse", () => ({
     mouse: { x: null, y: null },
     move(ev) {
@@ -30,7 +20,7 @@ document.addEventListener("alpine:init", () => {
 <div
   x-data="mouse"
   @mousemove="move"
-  class="[background:radial-gradient(circle_at_var(--mouse-x,50vw)_var(--mouse-y,50vh),rgba(10,33,84,0.5),rgba(0,0,0,0.5)_100vmax)]"
+  class="[background:radial-gradient(circle_at_var(--mouse-x,50vw)_var(--mouse-y,50vh),rgba(10,33,84,0.5),rgba(0,0,0,0.5)_80vmax)]"
 >
   <header class="content-grid">
     <div class="flex px-6 py-4 gap-8">

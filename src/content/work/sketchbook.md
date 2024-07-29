@@ -1,5 +1,5 @@
 ---
-title: "dev sketchbook"
+title: "(Old) sketchbook"
 id: "sketchbook"
 url: "https://dev-sketchbook.netlify.app/"
 imgs: ["sketchbook.png"]

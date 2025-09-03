@@ -2,7 +2,7 @@
 title: "Adebis Kita"
 id: "kita"
 url: ""
-imgs: ["kita1.png","kita2.png", "kita3.png","kita4.png","kita5.png"]
+imgs: ["kita5.png", "kita4.png","kita3.png","kita1.png"]
 ---
 
 # Kita management software

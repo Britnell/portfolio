@@ -17,5 +17,12 @@ but it grew, and can even do :
 - play radio
 - play random podcast episode
 
+stack : 
+- alpine.js
+- web components
+- tailwind
+- vite
+
+
 pretty awesome [what web can do](https://whatwebcando.today/), at least on Android, as apple really hates PWA.
 with modern web api we can even go fullscreen, keep the screen awake, read the time with TTS

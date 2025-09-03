@@ -1,7 +1,7 @@
 ---
 title: "Notesss"
 id: "notess"
-url: "https://unbrickit.tommy-britnell.workers.dev/app"
+url: "https://notessss.vercel.app/"
 imgs: ["notesss.png"]
 ---
 

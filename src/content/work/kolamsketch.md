@@ -15,5 +15,4 @@ A lot of these feature this grid of twisted lines
 Draw your own!
 
 - paper.js
-- For more old 2D stuff - https://webs.wonday.eu/ (OLD)
 

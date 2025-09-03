@@ -71,6 +71,10 @@ mdxs.forEach((md) => works.set(md.frontmatter.id, md));
     </div>
     <div></div>
 
+    <div class="relative overflow-hidden col-span-8 md:col-span-4 md:row-span-4">
+      <WorkCard md={works.get('snowflake')} />
+    </div>
+    <div></div>
     <div class="relative overflow-hidden col-span-10 md:col-span-4 md:row-span-3">
       <WorkCard md={works.get('playalong')} />
     </div>
@@ -106,10 +110,19 @@ mdxs.forEach((md) => works.set(md.frontmatter.id, md));
       <WorkCard md={works.get('boggle')} />
     </div>
     <div></div>
+    <div class="relative overflow-hidden col-span-8 md:col-span-3 md:row-span-4">
+      <WorkCard md={works.get('pomodoro')} />
+    </div>
+    <div></div>
+
+    <div></div>
     <div class="relative overflow-hidden col-span-8 md:col-span-3 md:row-span-3">
       <WorkCard md={works.get('kolamsketch')} />
     </div>
 
+    <div class="relative overflow-hidden col-span-8 row-span-4 md:col-span-5 md:row-span-4">
+      <WorkCard md={works.get('symmetric')} />
+    </div>
     <div></div>
     <div></div>
 

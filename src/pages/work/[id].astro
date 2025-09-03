@@ -1,12 +1,12 @@
 ---
-import Page from "../../comp/Page.astro";
+import Page from '../../comp/Page.astro';
 
 type GSTP = {
   params: { id: string };
   props: { markdown: any };
 }[];
 export async function getStaticPaths(): Promise<GSTP> {
-  const mdxs = await Astro.glob("../../content/work/*.md");
+  const mdxs = await Astro.glob('../../content/work/*.md');
 
   return mdxs.map((md: any) => ({
     params: {
@@ -81,12 +81,7 @@ const { Content } = markdown;
   >
     <header class="">
       <div class="h-14 my-4 flex flex-row items-center justify-between">
-        <a
-          href="/portfolio/about"
-          @click.prevent="window.history.back()"
-          aria-label="Back"
-          class="p-3 hover:bg-black"
-        >
+        <a href="/portfolio/about" @click.prevent="window.history.back()" aria-label="Back" class="p-3 hover:bg-black">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -115,14 +110,12 @@ const { Content } = markdown;
       </div>
     </header>
 
-    <main class="relative mt-6">
-      <div class="mb-6">
-        <p class="text-2xl text-center underline font-mono">
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            {url}
-          </a>
-        </p>
-      </div>
+    <main class="relative">
+      <p class="my-10 text-2xl text-center underline font-mono">
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {url}
+        </a>
+      </p>
       <div
         class="relative h-[60vh] max-h-[800px] w-full overflow-hidden flex flex-row"
         x-ref="scrollRef"
@@ -145,11 +138,7 @@ const { Content } = markdown;
             />
           ))
         }
-        <div
-          class="absolute top-1/2 right-0"
-          x-data="{dir: 'right'}"
-          x-show="imgs.length>1"
-        >
+        <div class="absolute top-1/2 right-0" x-data="{dir: 'right'}" x-show="imgs.length>1">
           <button
             class="bg-white w-14 h-14 rounded-full -translate-y-1/2 shadow-[2px_2px_8px_1px_rgba(0,0,0,0.6)]"
             @click="ix = (ix+1) % imgs.length"

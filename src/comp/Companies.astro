@@ -1,5 +1,5 @@
 ---
-import { companies } from "./data";
+import { companies } from './data';
 ---
 
 <div>
@@ -7,12 +7,10 @@ import { companies } from "./data";
 </div>
 <section class="">
   <div class="bg-white bg-opacity-10 p-8 mb-20">
-    <div
-      class="grid sm:grid-cols-[repeat(auto-fill,240px)] place-content-center gap-4 lg:gap-10 place-items-center"
-    >
+    <ul class="grid sm:grid-cols-[repeat(auto-fill,240px)] place-content-center gap-4 lg:gap-10 place-items-center">
       {
         companies.map((comp) => (
-          <div class=" ">
+          <li class=" ">
             <a href={comp.url} target="_blank" rel=" noopener noreferrer">
               <img
                 class=" w-full max-h-[80px]  md:max-h-[120px] "
@@ -21,9 +19,9 @@ import { companies } from "./data";
                 title={comp.name}
               />
             </a>
-          </div>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 </section>

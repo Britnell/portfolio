@@ -1,5 +1,5 @@
 ---
-title: "Web dev playground"
+title: "Web dev Sketchbook"
 id: "sketchbook-two"
 url: "https://astronomical-eta.vercel.app/"
 imgs: ["sketchbook-two.png"]

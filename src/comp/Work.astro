@@ -23,13 +23,20 @@ mdxs.forEach((md) => works.set(md.frontmatter.id, md));
       <WorkCard md={works.get('flypdash')} />
     </div>
 
-    <div></div>
-    <div class="relative overflow-hidden col-span-full md:col-span-6 md:row-span-4">
+    <div class=" col-span-"></div>
+    <div class="relative overflow-hidden col-span-full md:col-span-5 md:row-span-3">
       <WorkCard md={works.get('sbk')} />
     </div>
-    <div class="col-span-1 row-span-3"></div>
+    <div class="col-span-1 row-span-2"></div>
+    
+    <div class="col-span-2"></div>
 
-    <div class="relative overflow-hidden col-span-full md:col-span-6 md:row-span-4">
+    <div class="relative overflow-hidden col-span-full md:col-span-5 md:row-span-4">
+      <WorkCard md={works.get('way')} />
+    </div>
+
+    <div class="col-span-1 row-span-2"></div>
+    <div class="relative overflow-hidden col-span-full md:col-span-5 md:row-span-3">
       <WorkCard md={works.get('kita')} />
     </div>
     <div></div>

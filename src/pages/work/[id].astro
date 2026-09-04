@@ -6,7 +6,7 @@ type GSTP = {
   props: { markdown: any };
 }[];
 export async function getStaticPaths(): Promise<GSTP> {
-  const mdxs = await Astro.glob('../../content/work/*.md');
+  const mdxs = Object.values(import.meta.glob('../../content/work/*.md', { eager: true }));
 
   return mdxs.map((md: any) => ({
     params: {

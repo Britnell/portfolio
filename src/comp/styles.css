@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-industrial: var(--industrial);
+  --font-mono: "Nimbus Mono PS", "Courier New", monospace;
+}
 
 @layer base {
   :root {

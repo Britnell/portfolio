@@ -10,7 +10,9 @@ imgs: ["xr.png"]
 A hub for digital campaigns pushing for action on climate change, part of extinctionrebellion.uk.
 
 - Astro SSG
-- tailwind & sass
 - Storyblok headless cms
 - modular components
-- qwik
+- tailwind
+- alpine.js
+- self-hosted on vps
+- sql mariadb

@@ -6,7 +6,15 @@ imgs: ["kita5.png", "kita4.png","kita3.png","kita1.png"]
 ---
 
 # Kita management software
-LEgacy Desktop Anwendung als moderne web app neu interpretiert
+Legacy Windows App rebuilt and updated as web app
+Full kita management:
+- entering children's details, groups, schedule, attendance
+- full state law compliance, alerting on missing vaccinations
+- employee's details and attendance
+- track meals
+- invoices & book-keeping system
+- accounting for state law subsidisations
+- reporting & forecasting
 
 ## Stack :
 
@@ -15,5 +23,4 @@ LEgacy Desktop Anwendung als moderne web app neu interpretiert
 - tailwind
 - i18n
 - e2e tests
-- k9s
-- BE rust, mongodb
+- BE kubernetes, rust, mongodb, graphQL

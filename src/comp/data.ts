@@ -3,6 +3,20 @@ export const companies = [
     name: 'flyp',
     url: 'https://www.flyp.co/',
     img: '/logos/flyp.png',
+  },{
+    name: 'Fenyx',
+    url: 'https://fenyx-office.com/',
+    img: '/logos/fenyx.png',
+  },
+  {
+    name: 'Nio',
+    url: 'https://www.nio.com/',
+    img: '/logos/nio.png',
+  },
+  {
+    name: 'H&D',
+    url: 'https://h-d-gmbh.de/',
+    img: '/logos/h-d.png',
   },
   {
     name: 'Made By On',
@@ -15,19 +29,9 @@ export const companies = [
     img: '/logos/desaff.png',
   },
   {
-    name: 'Nio',
-    url: 'https://www.nio.com/',
-    img: '/logos/nio.png',
-  },
-  {
     name: 'The Makery',
     url: 'https://www.makery.de/',
     img: '/logos/makery.png',
-  },
-  {
-    name: 'H&D',
-    url: 'https://h-d-gmbh.de/',
-    img: '/logos/h-d.png',
   },
   {
     name: 'Engineers without Borders UK',

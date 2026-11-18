@@ -9,6 +9,13 @@ import '../comp/styles.css';
     Alpine.data('mouse', () => ({
       mouse: { x: null, y: null },
       scroll: 0,
+      init() {
+        // start centered in the current viewport (also correct after a scrolled refresh)
+        this.mouse.x = window.innerWidth / 2;
+        this.mouse.y = window.innerHeight / 2;
+        this.scroll = window.scrollY;
+        this.redraw();
+      },
       onmousemove(ev) {
         this.mouse.x = ev.clientX;
         this.mouse.y = ev.clientY;
@@ -21,6 +28,14 @@ import '../comp/styles.css';
       redraw() {
         document.body.style.setProperty('--mouse-x', `${this.mouse.x}px`);
         document.body.style.setProperty('--mouse-y', `${this.mouse.y + this.scroll}px`);
+        // 2nd glare: same direction from the logo box center as the mouse, but pulled closer (k < 1)
+        const box = document.querySelector('[data-glare-box]');
+        if (box) {
+          const k = 0.5;
+          const r = box.getBoundingClientRect();
+          box.style.setProperty('--refl-x', `${r.width / 2 + k * (this.mouse.x - (r.left + r.width / 2))}px`);
+          box.style.setProperty('--refl-y', `${r.height / 2 + k * (this.mouse.y - (r.top + r.height / 2))}px`);
+        }
       },
     }));
   });

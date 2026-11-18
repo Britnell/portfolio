@@ -1,21 +1,23 @@
 ---
-import Page from '../../comp/Page.astro';
+import Page from "../../comp/Page.astro";
 
 type GSTP = {
-  params: { id: string };
-  props: { markdown: any };
+    params: { id: string };
+    props: { markdown: any };
 }[];
 export async function getStaticPaths(): Promise<GSTP> {
-  const mdxs = Object.values(import.meta.glob('../../content/work/*.md', { eager: true }));
+    const mdxs = Object.values(
+        import.meta.glob("../../content/work/*.md", { eager: true }),
+    );
 
-  return mdxs.map((md: any) => ({
-    params: {
-      id: md.frontmatter.id,
-    },
-    props: {
-      markdown: md,
-    },
-  }));
+    return mdxs.map((md: any) => ({
+        params: {
+            id: md.frontmatter.id,
+        },
+        props: {
+            markdown: md,
+        },
+    }));
 }
 
 const { markdown } = Astro.props;
@@ -24,173 +26,223 @@ const { Content } = markdown;
 ---
 
 <Page>
-  <style is:global lang="scss">
-    @function rem($pxVal) {
-      @return calc($pxVal / 16 * 1rem);
-    }
-    @function rempx($pxVal) {
-      @return calc($pxVal / 16px * 1rem);
-    }
-    @function clamps($font-min, $font-max) {
-      $screen-min: 340px;
-      $screen-max: 1750px;
-      $slope: calc(($font-max - $font-min) / ($screen-max - $screen-min));
-      $y-axis-intersection: calc(-1 * $screen-min * $slope + $font-min);
-      $min: rempx($font-min);
-      $max: rempx($font-max);
-      $intersect: rempx($y-axis-intersection);
-      @return clamp(#{$min}, calc(#{$intersect} + #{$slope} * 100vw), #{$max});
-    }
-
-    body {
-      background: rgb(49, 49, 49);
-    }
-
-    .md :where(h1, h2, h3) {
-      font-family: var(--industrial);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      line-height: 1.2;
-    }
-    .md h1 {
-      font-size: clamps(24px, 32px);
-      margin-top: 1em;
-      margin-bottom: 0.5em;
-    }
-    .md h2 {
-      font-size: clamps(18px, 24px);
-      margin-top: 1em;
-      margin-bottom: 0.5em;
-    }
-    .md p {
-      font-size: clamps(16px, 18px);
-      margin-bottom: 0.8em;
-    }
-    .md a {
-      text-decoration: underline;
-    }
-  </style>
-
-  <script is:inline></script>
-
-  <div
-    class="px-10 mx-auto max-w-[1200px]"
-    x-data={`{ ix:0, imgs: ${JSON.stringify(imgs)} }`}
-    @keydown.window.escape="window.history.back()"
-  >
-    <header class="">
-      <div class="h-14 my-4 flex flex-row items-center justify-between">
-        <a href="/portfolio/about" @click.prevent="window.history.back()" aria-label="Back" class="p-3 hover:bg-black">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="rotate-180"
-          >
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-        <h1 class="heading text-3xl">{title}</h1>
-        <a
-          href="/portfolio/about"
-          @click.prevent="window.history.back()"
-          aria-label="close"
-          class="p-3 hover:bg-black text-xl"
-        >
-          X
-        </a>
-      </div>
-    </header>
-
-    <main class="relative">
-      <div
-        class="relative h-[60vh] max-h-[800px] w-full overflow-hidden flex flex-row"
-        x-ref="scrollRef"
-        :class=" imgs.length===1 ? ' justify-center':'' "
-      >
-        {
-          imgs.map((img: string, i: number) => (
-            <img
-              class=" absolute flex-[0_0_auto] min-w-[400px] w-full h-full object-contain"
-              src={`/portfolio/work/${img}`}
-              alt={`${id} website image`}
-              transition:name={`${id}-img`}
-              x-show={`ix ===  ${i}`}
-              x-transition:enter="transition ease-in-out duration-[.7s]"
-              x-transition:enter-start="transform translate-x-full"
-              x-transition:enter-end="transform translate-x-0"
-              x-transition:leave="transition ease-in-out duration-[.7s]"
-              x-transition:leave-start="transform translate-x-0"
-              x-transition:leave-end="transform -translate-x-full"
-            />
-          ))
+    <style is:global lang="scss">
+        @function rem($pxVal) {
+            @return calc($pxVal / 16 * 1rem);
         }
-        <div class="absolute top-1/2 right-0" x-data="{dir: 'right'}" x-show="imgs.length>1">
-          <button
-            class="bg-white w-14 h-14 rounded-full -translate-y-1/2 shadow-[2px_2px_8px_1px_rgba(0,0,0,0.6)]"
-            @click="ix = (ix+1) % imgs.length"
-            x-click="scrollBy($refs.scrollRef)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="black"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="chevron-right"
-              :class="dir==='left' ? ' rotate-180':'' "
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        </div>
-      </div>
-      {
-        url && (
-          <p class="mt-6 text-center font-mono text-xl">
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-block px-4 py-2 bg-white/10 hover:bg-white/20 underline break-all"
-            >
-              {url}
-            </a>
-          </p>
-        )
-      }
-      <div class="mt-10 max-w-[75ch] mx-auto">
-        <div class="md">
-          <Content />
-        </div>
-        {
-          skills?.length > 0 && (
-            <ul class="mt-8 flex flex-wrap gap-2 font-mono text-sm" aria-label="Skills">
-              {skills.map((s: string) => (
-                <li class="px-3 py-1 rounded bg-white/10 border border-white/25">{s}</li>
-              ))}
-            </ul>
-          )
+        @function rempx($pxVal) {
+            @return calc($pxVal / 16px * 1rem);
         }
-      </div>
-    </main>
-    <footer class="mb-[240px]"></footer>
-  </div>
+        @function clamps($font-min, $font-max) {
+            $screen-min: 340px;
+            $screen-max: 1750px;
+            $slope: calc(($font-max - $font-min) / ($screen-max - $screen-min));
+            $y-axis-intersection: calc(-1 * $screen-min * $slope + $font-min);
+            $min: rempx($font-min);
+            $max: rempx($font-max);
+            $intersect: rempx($y-axis-intersection);
+            @return clamp(
+                #{$min},
+                calc(#{$intersect} + #{$slope} * 100vw),
+                #{$max}
+            );
+        }
+
+        body {
+            background: rgb(49, 49, 49);
+        }
+
+        .md :where(h1, h2, h3) {
+            font-family: var(--industrial);
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        .md h1 {
+            font-size: clamps(24px, 32px);
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+        .md h2 {
+            font-size: clamps(18px, 24px);
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+        .md p {
+            font-size: clamps(16px, 18px);
+            margin-bottom: 0.8em;
+        }
+        .md a {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script is:inline></script>
+
+    <div
+        class="px-10 mx-auto max-w-[1200px]"
+        x-data={`{ imgs: ${JSON.stringify(imgs)} }`}
+        @keydown.window.escape="window.history.back()"
+    >
+        <header class="">
+            <div class="h-14 my-4 flex flex-row items-center justify-between">
+                <a
+                    href="/portfolio/about"
+                    @click.prevent="window.history.back()"
+                    aria-label="Back"
+                    class="p-3 hover:bg-black"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="rotate-180"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <h1 class="heading text-3xl">{title}</h1>
+                <a
+                    href="/portfolio/about"
+                    @click.prevent="window.history.back()"
+                    aria-label="close"
+                    class="p-3 hover:bg-black text-xl"
+                >
+                    X
+                </a>
+            </div>
+        </header>
+
+        <main class="relative">
+            <div
+                class="relative -mx-10"
+                x-data="{
+          current() {
+            const el = this.$refs.scrollRef;
+            const mid = el.scrollLeft + el.clientWidth / 2;
+            const kids = [...el.children];
+            let best = 0, bestD = Infinity;
+            kids.forEach((k, i) => {
+              const d = Math.abs(k.offsetLeft + k.offsetWidth / 2 - mid);
+              if (d < bestD) { bestD = d; best = i; }
+            });
+            return best;
+          },
+          scrollBy(dir) {
+            const el = this.$refs.scrollRef;
+            const target = el.children[this.current() + dir];
+            if (target) target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          },
+          pad() {
+            const el = this.$refs.scrollRef;
+            const first = el.firstElementChild, last = el.lastElementChild;
+            if (!first) return;
+            el.style.paddingLeft = Math.max(0, (el.clientWidth - first.offsetWidth) / 2) + 'px';
+            el.style.paddingRight = Math.max(0, (el.clientWidth - last.offsetWidth) / 2) + 'px';
+          },
+        }"
+                x-init="pad(); $refs.scrollRef.querySelectorAll('img').forEach(i => i.addEventListener('load', () => pad()))"
+                @resize.window="pad()"
+            >
+                <div
+                    class="w-full flex flex-row items-center gap-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                    x-ref="scrollRef"
+                >
+                    {imgs.map((img: string, i: number) => (
+                        <img
+                            class="snap-center flex-none w-auto h-auto max-h-[min(60vh,800px)] max-w-[min(calc(100vw-5rem),1080px)]"
+                            src={`/portfolio/work/${img}`}
+                            alt={`${id} website image ${i + 1}`}
+                            transition:name={i === 0 ? `${id}-img` : undefined}
+                        />
+                    ))}
+                </div>
+                <template x-if="imgs.length > 1">
+                    <div>
+                        <button
+                            aria-label="Previous image"
+                            class="absolute top-1/2 left-0 w-14 h-14 p-0 flex items-center justify-center cursor-pointer rounded-full -translate-y-1/2 border-2 border-white text-white bg-black/50 hover:bg-black/70 transition-colors"
+                            @click="scrollBy(-1)"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="rotate-180 w-8 h-8"
+                            >
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                        <button
+                            aria-label="Next image"
+                            class="absolute top-1/2 right-0 w-14 h-14 p-0 flex items-center justify-center cursor-pointer rounded-full -translate-y-1/2 border-2 border-white text-white bg-black/50 hover:bg-black/70 transition-colors"
+                            @click="scrollBy(1)"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-8 h-8"
+                            >
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </template>
+            </div>
+            {url && (
+                <p class="mt-6 text-center font-mono text-xl">
+                    <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-block px-4 py-2 bg-white/10 hover:bg-white/20 underline break-all"
+                    >
+                        {url}
+                    </a>
+                </p>
+            )}
+            <div class="mt-10 max-w-[75ch] mx-auto">
+                <div class="md">
+                    <Content />
+                </div>
+                {skills?.length > 0 && (
+                    <ul
+                        class="mt-8 flex flex-wrap gap-2 font-mono text-sm"
+                        aria-label="Skills"
+                    >
+                        {skills.map((s: string) => (
+                            <li class="px-3 pt-1 bg-white/10 border border-white/25 leading-tight hover:font-bold cursor-default">
+                                {s}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+        </main>
+        <footer class="mb-[240px]"></footer>
+    </div>
 </Page>
 
 <style is:global>
-  .md ul {
-    padding-left: 1.5rem;
-    list-style: disc;
-  }
+    .md ul {
+        padding-left: 1.5rem;
+        list-style: disc;
+    }
 </style>
